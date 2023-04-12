@@ -1,7 +1,12 @@
+; this start gcode is for PrusaSlicer, and an Ender3pro configured with a UBL mesh probe.
+; it assumes that the bed mesh is created and working, and will load it from slot 0
+; a double purge line is drawn along the Y-axis of the bed near X=0
 M140 S[first_layer_bed_temperature] ; set bed temp
 M104 S{first_layer_temperature[0] } ; set extruder temp
 G28 ; home all axes
-G29 ; ABL
+G28 ; home all axes
+G29 L ; load mesh saved in slot 0 which is the default slot
+G29 J ; Probe 3 points and tilt the mesh loaded in slot 0 to match the current bed tilt
 G1 X0 Y0 Z2 F5000;
 G1 X0 Y1 Z0 F500;
 G1 X0 Y20 Z5 F3000 ; lift
