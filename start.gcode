@@ -4,7 +4,6 @@
 M140 S[first_layer_bed_temperature] ; set bed temp
 M104 S{first_layer_temperature[0] } ; set extruder temp
 G28 ; home all axes
-G28 ; home all axes
 G29 L ; load mesh saved in slot 0 which is the default slot
 G29 J ; Probe 3 points and tilt the mesh loaded in slot 0 to match the current bed tilt
 G1 X0 Y0 Z2 F5000;
